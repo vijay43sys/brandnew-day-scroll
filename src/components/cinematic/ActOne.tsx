@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import { useReveal } from "@/lib/useReveal";
 import heroImg from "@/assets/hero.jpg";
 import villainImg from "@/assets/villain.jpg";
 
@@ -63,20 +64,6 @@ export function ActOne({ id }: { id: string }) {
         );
       });
 
-      gsap.utils.toArray<HTMLElement>(".reveal-block").forEach((block) => {
-        gsap.fromTo(
-          block,
-          { opacity: 0, y: 70, clipPath: "inset(100% 0 0 0)" },
-          {
-            opacity: 1,
-            y: 0,
-            clipPath: "inset(0% 0 0 0)",
-            duration: 1.2,
-            ease: "power3.out",
-            scrollTrigger: { trigger: block, start: "top 80%" },
-          },
-        );
-      });
     }, root);
     return () => ctx.revert();
   }, []);
@@ -120,8 +107,9 @@ export function ActOne({ id }: { id: string }) {
 
 /** Scene 4 & 5 — the hero and the threat, still over the film layer. */
 export function ActOneTail() {
+  const ref = useReveal<HTMLDivElement>();
   return (
-    <>
+    <div ref={ref}>
       <section className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 py-[16vh] md:grid-cols-2">
         <div className="reveal-block relative">
           <img
@@ -185,6 +173,6 @@ export function ActOneTail() {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
       </section>
-    </>
+    </div>
   );
 }
