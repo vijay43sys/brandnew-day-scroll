@@ -1,7 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SplitType from "split-type";
 import { useReveal } from "@/lib/useReveal";
 import heroImg from "@/assets/hero.jpg";
 import villainImg from "@/assets/villain.jpg";
@@ -20,22 +19,21 @@ export function ActOne() {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       // Title reveal
-      const title = new SplitType(".cine-title", { types: "chars" });
-      gsap.from(title.chars, {
+      gsap.from(".cine-word", {
         opacity: 0,
         yPercent: 120,
         rotateX: -80,
         filter: "blur(12px)",
-        stagger: 0.05,
+        stagger: 0.12,
         duration: 1.4,
         ease: "power4.out",
-        delay: 0.4,
+        delay: 0.25,
       });
       gsap.from(".cine-tagline", {
         opacity: 0,
         y: 24,
         duration: 1.6,
-        delay: 1.6,
+        delay: 1.3,
         ease: "power2.out",
       });
       gsap.to(".scene-1", {
@@ -75,8 +73,12 @@ export function ActOne() {
         <p className="font-body text-xs tracking-[0.7em] text-muted-foreground uppercase">
           A Motion Picture Event
         </p>
-        <h1 className="cine-title title-cine text-glow-red mt-6 text-[15vw] leading-[0.82] font-normal md:text-[11vw]">
-          Brand New Day
+        <h1 className="text-glow-red mt-6 flex flex-wrap justify-center gap-x-[0.18em] text-[15vw] leading-[0.82] font-normal md:text-[11vw]">
+          {["Brand", "New", "Day"].map((word) => (
+            <span key={word} className="cine-word title-cine inline-block">
+              {word}
+            </span>
+          ))}
         </h1>
         <p className="cine-tagline mt-8 max-w-xl font-body text-lg tracking-[0.25em] text-foreground/80 uppercase md:text-xl">
           Every ending is the beginning of something greater.
