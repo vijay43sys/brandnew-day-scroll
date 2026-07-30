@@ -37,9 +37,11 @@ function Index() {
       <Atmosphere />
       <FilmBackdrop scrubTargetId="act-one" />
 
-      <ActOne id="act-one" />
-      <Newspaper />
-      <ActOneTail />
+      <div id="act-one">
+        <ActOne />
+        <Newspaper />
+        <ActOneTail />
+      </div>
       <Characters />
       <Timeline />
       <Trailer />

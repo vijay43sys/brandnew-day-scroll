@@ -13,7 +13,7 @@ const worldLines = [
   "And hope is disappearing, block by block.",
 ];
 
-export function ActOne({ id }: { id: string }) {
+export function ActOne() {
   const root = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
@@ -69,7 +69,7 @@ export function ActOne({ id }: { id: string }) {
   }, []);
 
   return (
-    <div ref={root} id={id} className="relative z-10">
+    <div ref={root} className="relative z-10">
       {/* Scene 1 — Opening */}
       <section className="scene-1 flex min-h-screen flex-col items-center justify-center px-6 text-center">
         <p className="font-body text-xs tracking-[0.7em] text-muted-foreground uppercase">
