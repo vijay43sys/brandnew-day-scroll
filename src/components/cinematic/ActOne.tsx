@@ -73,9 +73,9 @@ export function ActOne() {
         <p className="font-body text-xs tracking-[0.7em] text-muted-foreground uppercase">
           A Motion Picture Event
         </p>
-        <h1 className="text-glow-red mt-6 flex flex-wrap justify-center gap-x-[0.18em] text-[15vw] leading-[0.82] font-normal md:text-[11vw]">
+        <h1 className="mt-6 flex flex-wrap justify-center gap-x-[0.18em] text-[15vw] leading-[0.82] font-normal md:text-[11vw]">
           {["Brand", "New", "Day"].map((word) => (
-            <span key={word} className="cine-word title-cine inline-block">
+            <span key={word} className="cine-word title-cine text-glow-red inline-block">
               {word}
             </span>
           ))}
