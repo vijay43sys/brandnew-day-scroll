@@ -205,15 +205,13 @@
 }
 
 @utility text-glow-red {
-  text-shadow:
-    0 0 24px oklch(0.56 0.235 27.5 / 0.6),
-    0 0 70px oklch(0.56 0.235 27.5 / 0.35);
+  filter: drop-shadow(0 0 18px oklch(0.56 0.235 27.5 / 0.55))
+    drop-shadow(0 0 55px oklch(0.56 0.235 27.5 / 0.3));
 }
 
 @utility text-glow-blue {
-  text-shadow:
-    0 0 24px oklch(0.62 0.19 255 / 0.6),
-    0 0 70px oklch(0.62 0.19 255 / 0.35);
+  filter: drop-shadow(0 0 18px oklch(0.62 0.19 255 / 0.55))
+    drop-shadow(0 0 55px oklch(0.62 0.19 255 / 0.3));
 }
 
 /* Film grain */
